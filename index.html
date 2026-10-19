@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Party — Watch Full Comedy Episodes</title>
+<meta name="description" content="Watch Party — watch full comedy episodes, free. New episodes added regularly.">
+<meta property="og:title" content="Watch Party — Watch Full Comedy Episodes">
+<meta property="og:description" content="Watch full comedy episodes, free. New episodes added regularly.">
+<meta property="og:type" content="website">
+
+<!-- ADSTERRA SITE-OPEN AD: paste your Popunder or Interstitial code here.
+     This ad fires as soon as the website opens, before the visitor sees anything else.
+     Get the code from your Adsterra publisher dashboard: Websites > your site > Popunder (or Interstitial). -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="index.html">Watch <b>Party</b></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ADSTERRA BANNER 728x90 (responsive): paste your Adsterra Banner code here.
+     Recommended: 728x90 Leaderboard for desktop, it auto-scales on mobile.
+     Get the code from your Adsterra dashboard: Websites > your site > Banners > Create ad unit. -->
+<div class="ad-slot"><div class="ad-box">Advertisement</div></div>
+
+<main>
+  <section class="hero">
+    <div class="kicker">Watch Party &nbsp;•&nbsp; Free To Watch</div>
+    <h1>Laugh Out <span>Loud.</span></h1>
+    <p>Watch full comedy episodes on Watch Party — new episodes added regularly. Grab your popcorn and press play.</p>
+    <a class="btn" href="#episodes">Browse Episodes</a>
+  </section>
+
+  <div class="wrap" id="episodes">
+    <div class="sec-head">
+      <div class="kicker">All Episodes</div>
+      <h2>Latest Episodes</h2>
+      <p id="episode-count"></p>
+    </div>
+    <div class="grid" id="episode-grid"><!-- episodes render here from episodes.json --></div>
+    <div class="notfound" id="episode-empty" style="display:none">
+      <h2>No episodes yet</h2>
+      <p>New episodes are on the way — check back soon.</p>
+    </div>
+  </div>
+
+  <!-- ADSTERRA IN-FEED BANNER (responsive): paste a second Adsterra Banner code here.
+       Placed between the episode grid and the footer so visitors see an ad after browsing. -->
+  <div class="ad-slot responsive"><div class="ad-box">Advertisement</div></div>
+</main>
+
+<footer>
+  <div class="f-wrap">
+    <div class="f-brand">
+      <a class="logo" href="index.html">Watch <b>Party</b></a>
+      <p>Full comedy episodes, free to watch. New episodes added regularly.</p>
+    </div>
+    <div class="f-links">
+      <div>
+        <h4>Watch</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#episodes">All Episodes</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">© 2026 Watch Party. All rights reserved.</div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>renderGrid();</script>
+
+<!-- ADSTERRA SOCIAL BAR: paste your Social Bar code here, just before </body>.
+     Floating notification-style ads appear periodically while visitors browse and watch.
+     This is what keeps ads coming "in between" while a video plays — it runs on the
+     page around the player, which is the correct approach (see the note on watch.html).
+     Get the code from your Adsterra dashboard: Websites > your site > Social Bar. -->
+
+</body>
+</html>

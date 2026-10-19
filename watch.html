@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Episode — Watch Party</title>
+<meta name="description" content="Watch full comedy episodes on Watch Party, free.">
+<meta property="og:type" content="website">
+
+<!-- ADSTERRA SITE-OPEN AD: paste your Popunder or Interstitial code here.
+     This ad fires as soon as the website opens, before the visitor sees anything else.
+     Get the code from your Adsterra publisher dashboard: Websites > your site > Popunder (or Interstitial). -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="index.html">Watch <b>Party</b></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ADSTERRA BANNER 728x90 (responsive): paste your Adsterra Banner code here.
+     Sits directly above the video player — the highest-visibility slot on this page.
+     Get the code from your Adsterra dashboard: Websites > your site > Banners > Create ad unit. -->
+<div class="ad-slot"><div class="ad-box">Advertisement</div></div>
+
+<main>
+  <div class="wrap">
+    <div id="watch-content"><!-- episode renders here from episodes.json --></div>
+
+    <!--
+      IMPORTANT — READ BEFORE ADDING AD CODES:
+      Mid-roll ads INSIDE the YouTube video player are technically impossible.
+      The player is a YouTube iframe; YouTube owns it and no code on this page can
+      inject ads into it. Do NOT attempt hacks or overlays on the video — they get
+      blocked and can get the site penalized by the ad network.
+      The correct alternative is already built into this page:
+        1. The Adsterra Social Bar slot (just before </body>) keeps floating ads
+           appearing periodically WHILE the video plays.
+        2. The banner slots above and below the player earn on every watch page view.
+      Together these are the standard, policy-safe way to monetize embedded video.
+    -->
+
+    <!-- ADSTERRA IN-ARTICLE BANNER (responsive): paste another Adsterra Banner code here.
+         Appears right below the player, while the episode is still on screen. -->
+    <div class="ad-slot responsive"><div class="ad-box">Advertisement</div></div>
+  </div>
+</main>
+
+<footer>
+  <div class="f-wrap">
+    <div class="f-brand">
+      <a class="logo" href="index.html">Watch <b>Party</b></a>
+      <p>Full comedy episodes, free to watch. New episodes added regularly.</p>
+    </div>
+    <div class="f-links">
+      <div>
+        <h4>Watch</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#episodes">All Episodes</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">© 2026 Watch Party. All rights reserved.</div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+  var mount = document.getElementById('watch-content');
+
+  function notFound(message) {
+    mount.innerHTML =
+      '<div class="notfound"><h2>Episode not found</h2>' +
+      '<p>' + esc(message || 'This episode does not exist or the link is broken.') + '</p>' +
+      '<a class="btn" href="index.html">Back to All Episodes</a></div>';
+    document.title = 'Episode not found — Watch Party';
+  }
+
+  function miniCard(ep) {
+    return '<a class="mini-card" href="' + watchUrl(ep) + '">' +
+      '<div class="m-thumb">' + thumbHtml(ep) + '</div>' +
+      '<div class="m-info"><div class="m-num">EPISODE ' + esc(ep.number) + '</div>' +
+      esc(ep.title) + '</div></a>';
+  }
+
+  async function init() {
+    var eps, ep, id;
+    try {
+      eps = await loadEpisodes();
+    } catch (err) {
+      notFound('The episode list could not be loaded. Please refresh the page.');
+      return;
+    }
+    id = getParam('ep');
+    ep = eps.find(function (e) { return String(e.id) === String(id); });
+    if (!ep) { notFound(); return; }
+
+    document.title = ep.title + ' — Watch Party';
+
+    var idx = eps.indexOf(ep);
+    var prev = idx > 0 ? eps[idx - 1] : null;
+    var next = idx < eps.length - 1 ? eps[idx + 1] : null;
+    var others = eps.filter(function (e) { return e.id !== ep.id; }).slice(-6).reverse();
+
+    mount.innerHTML =
+      '<div class="watch-layout">' +
+        '<div>' +
+          '<div class="player"><iframe src="' + ytEmbedUrl(ep.youtube_id) + '" ' +
+            'title="' + esc(ep.title) + '" allow="accelerometer; autoplay; clipboard-write; ' +
+            'encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>' +
+          '<div class="watch-meta">Episode ' + esc(ep.number) + '</div>' +
+          '<h1 class="watch-title">' + esc(ep.title) + '</h1>' +
+          (ep.description ? '<p class="watch-desc">' + esc(ep.description).replace(/\n/g, '<br>') + '</p>' : '') +
+          '<div class="ep-nav">' +
+            (prev
+              ? '<a href="' + watchUrl(prev) + '"><span class="dir">Previous episode</span>' + esc(prev.title) + '</a>'
+              : '<a class="disabled"><span class="dir">Previous episode</span>None yet</a>') +
+            (next
+              ? '<a class="next" href="' + watchUrl(next) + '"><span class="dir">Next episode</span>' + esc(next.title) + '</a>'
+              : '<a class="next disabled"><span class="dir">Next episode</span>None yet</a>') +
+          '</div>' +
+        '</div>' +
+        '<aside class="sidebar">' +
+          '<!-- ADSTERRA 300x250 BOX: paste your Adsterra 300x250 Banner code here. ' +
+               'Sits beside the player on desktop, below the player on mobile. -->' +
+          '<div class="ad-slot" style="margin:0 0 20px"><div class="ad-box tall">Advertisement</div></div>' +
+          '<div class="side-head">More Episodes</div>' +
+          '<div class="mini-list">' +
+            (others.length ? others.map(miniCard).join('') : '<p style="color:var(--muted);font-size:14px">More episodes coming soon.</p>') +
+          '</div>' +
+        '</aside>' +
+      '</div>';
+  }
+
+  init();
+})();
+</script>
+
+<!-- ADSTERRA SOCIAL BAR: paste your Social Bar code here, just before </body>.
+     Floating notification-style ads appear periodically while visitors watch.
+     This is what keeps ads coming "in between" while a video plays — it runs on the
+     page around the player, which is the correct approach (see the note above).
+     Get the code from your Adsterra dashboard: Websites > your site > Social Bar. -->
+
+</body>
+</html>

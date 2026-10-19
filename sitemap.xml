@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RAJ: after deploying, replace https://watchparty.netlify.app with your real site URL -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://watchparty.netlify.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://watchparty.netlify.app/watch.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://watchparty.netlify.app/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://watchparty.netlify.app/contact.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://watchparty.netlify.app/privacy.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

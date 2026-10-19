@@ -1,0 +1,128 @@
+/* Watch Party — dark cinematic theme, mobile-first */
+:root{
+  --bg:#0a0a0f;
+  --bg2:#101018;
+  --card:#15151f;
+  --line:#262633;
+  --text:#f4f1ea;
+  --muted:#a9a49b;
+  --accent:#e5383b;
+  --accent-d:#b8252a;
+  --gold:#d9a441;
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:1px;font-weight:400}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- header ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:30px;letter-spacing:2px;text-decoration:none;color:var(--text)}
+.logo b{color:var(--accent);font-weight:400}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+
+/* ---------- ad slots ---------- */
+.ad-slot{display:flex;align-items:center;justify-content:center;min-height:90px;margin:18px auto;max-width:1200px;padding:0 20px}
+.ad-slot .ad-box{width:100%;max-width:728px;min-height:90px;border:1px dashed #3a3a48;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#5c5c6a;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:#0e0e15}
+.ad-slot .ad-box.tall{min-height:250px;max-width:300px}
+.ad-slot.responsive .ad-box{max-width:100%}
+
+/* ---------- hero ---------- */
+.hero{background:radial-gradient(1200px 500px at 50% -10%,#2a1214 0%,var(--bg) 60%);padding:72px 20px 56px;text-align:center;border-bottom:1px solid var(--line)}
+.hero .kicker{color:var(--accent);letter-spacing:5px;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:64px;line-height:1;margin-bottom:16px}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:600px;margin:0 auto 30px;font-size:16px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 40px;text-decoration:none;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;border-radius:6px;border:none;cursor:pointer}
+.btn:hover{background:var(--accent-d)}
+.btn.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--accent);margin-left:12px}
+
+/* ---------- sections ---------- */
+.wrap{max-width:1200px;margin:0 auto;padding:56px 20px}
+.sec-head{margin-bottom:34px}
+.sec-head .kicker{color:var(--accent);letter-spacing:4px;font-size:11px;text-transform:uppercase;margin-bottom:8px}
+.sec-head h2{font-size:44px}
+.sec-head p{color:var(--muted);margin-top:6px}
+
+/* ---------- episode grid ---------- */
+.grid{display:grid;grid-template-columns:1fr;gap:26px}
+.ep-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.ep-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.ep-thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.ep-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1c1c28,#0d0d14);color:var(--muted);font-family:'Bebas Neue',Impact,sans-serif;font-size:34px;letter-spacing:3px}
+.play-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.play-badge i{width:58px;height:58px;border-radius:50%;background:rgba(229,56,59,.92);display:flex;align-items:center;justify-content:center;font-style:normal}
+.play-badge i::after{content:'';border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.ep-info{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ep-num{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase}
+/* Full episode titles are ALWAYS shown in full — never truncated, never ellipsis */
+.ep-title{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;line-height:1.45;overflow:visible;white-space:normal;text-overflow:clip}
+.ep-desc{color:var(--muted);font-size:14px;line-height:1.55}
+.ep-card .watch-link{margin-top:auto;padding-top:10px;color:var(--accent);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
+
+/* ---------- watch page ---------- */
+.watch-layout{display:grid;grid-template-columns:1fr;gap:28px}
+.player{position:relative;aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.watch-title{font-family:'Inter',sans-serif;font-size:26px;font-weight:700;line-height:1.4;margin:18px 0 10px;overflow:visible;white-space:normal}
+.watch-meta{color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.watch-desc{color:#cfccc4;font-size:15px;line-height:1.7;margin-bottom:8px}
+.ep-nav{display:flex;justify-content:space-between;gap:14px;margin-top:28px}
+.ep-nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;font-size:14px}
+.ep-nav a:hover{border-color:var(--accent)}
+.ep-nav .dir{display:block;font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.ep-nav .next{text-align:right}
+.ep-nav a.disabled{opacity:.35;pointer-events:none}
+.sidebar .side-head{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:6px 0 14px}
+.mini-list{display:flex;flex-direction:column;gap:14px}
+.mini-card{display:flex;gap:12px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.mini-card:hover{border-color:var(--accent)}
+.mini-card .m-thumb{width:120px;min-width:120px;aspect-ratio:16/9;background:#000;position:relative;overflow:hidden}
+.mini-card .m-thumb img{width:100%;height:100%;object-fit:cover}
+.mini-card .m-info{padding:10px 10px 10px 0;font-size:13px;font-weight:600;line-height:1.4}
+.mini-card .m-num{font-size:10px;letter-spacing:2px;color:var(--accent)}
+.notfound{text-align:center;padding:80px 20px}
+.notfound h2{font-size:52px;margin-bottom:12px}
+.notfound p{color:var(--muted);margin-bottom:26px}
+
+/* ---------- static pages ---------- */
+.page{max-width:800px;margin:0 auto;padding:60px 20px}
+.page h1{font-size:54px;margin-bottom:20px}
+.page h2{font-size:28px;margin:30px 0 10px;color:var(--gold)}
+.page p{color:#cfccc4;margin-bottom:14px;font-size:15px}
+.page a{color:var(--accent)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--bg2);margin-top:40px}
+.f-wrap{max-width:1200px;margin:0 auto;padding:44px 20px 26px;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+.f-brand .logo{font-size:26px}
+.f-brand p{color:var(--muted);font-size:13px;max-width:300px;margin-top:10px}
+.f-links{display:flex;gap:44px}
+.f-links h4{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text);margin-bottom:12px;font-family:'Inter',sans-serif}
+.f-links a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.f-links a:hover{color:var(--text)}
+.f-bottom{border-top:1px solid var(--line);text-align:center;padding:20px;color:var(--muted);font-size:12px;letter-spacing:1px}
+
+/* ---------- responsive ---------- */
+@media(min-width:640px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:76px}
+}
+@media(min-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .watch-layout{grid-template-columns:1fr 320px}
+  .hero h1{font-size:88px}
+}
+@media(max-width:640px){
+  .nav-links{gap:16px}
+  .nav-links a{font-size:11px}
+  .hero{padding:54px 16px 44px}
+  .btn.ghost{margin-left:0;margin-top:12px}
+}

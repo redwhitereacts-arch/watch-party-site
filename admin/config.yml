@@ -1,0 +1,58 @@
+# Watch Party — Decap CMS config (same pattern as the Leatherone site)
+# Backend: Netlify Identity + Git Gateway. In the Netlify dashboard:
+#   1. Site settings > Identity > Enable Identity
+#   2. Site settings > Identity > Services > Enable Git Gateway
+#   3. Identity > Invite users > invite Raj's email
+# Raj then opens https://<site>/admin, logs in, and adds episodes from his phone.
+backend:
+  name: git-gateway
+  branch: main   # RAJ: change to "master" if your GitHub repo's default branch is master
+
+site_url: https://watchparty.netlify.app/   # RAJ: replace with your real site URL after deploying
+display_url: https://watchparty.netlify.app/
+logo_url: https://watchparty.netlify.app/assets/logo.png
+
+media_folder: "assets/uploads"     # uploaded thumbnails are stored in the repo here
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "episodes"
+    label: "Episodes"
+    files:
+      - name: "all_episodes"
+        label: "All Episodes"
+        file: "episodes.json"
+        fields:
+          - label: "Episodes"
+            name: "episodes"
+            widget: "list"
+            summary: "EP {{fields.number}} — {{fields.title}}"
+            fields:
+              - label: "Episode ID (unique, no spaces)"
+                name: "id"
+                widget: "string"
+                hint: "Lowercase letters, numbers and dashes only. Example: ep-001"
+              - label: "Full Episode Title"
+                name: "title"
+                widget: "string"
+                hint: "The COMPLETE episode name — it is always shown in full on the site, never cut off."
+              - label: "Episode Number"
+                name: "number"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                hint: "1, 2, 3… Newest (highest) number shows first on the homepage."
+              - label: "YouTube Video ID"
+                name: "youtube_id"
+                widget: "string"
+                hint: "Only the ID from the YouTube link. In youtube.com/watch?v=dQw4w9WgXcQ the ID is dQw4w9WgXcQ. Upload the video as UNLISTED so it only plays on this website."
+              - label: "Thumbnail (optional)"
+                name: "thumbnail"
+                widget: "image"
+                required: false
+                hint: "Leave empty to auto-use the YouTube video thumbnail."
+              - label: "Description (optional)"
+                name: "description"
+                widget: "text"
+                required: false
+                hint: "2-3 lines about this episode, shown on its watch page."
