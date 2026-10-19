@@ -135,3 +135,4 @@ footer{border-top:1px solid var(--line);background:var(--bg2);margin-top:40px}
 .tg-popup-card h3{font-size:24px;margin:0 0 10px}
 .tg-popup-card p{color:var(--muted);font-size:14px;margin:0 0 20px}
 .tg-popup-close{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer}
+.tg-steps{margin-top:14px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}

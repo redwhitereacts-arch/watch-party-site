@@ -51,15 +51,14 @@
     <div class="kicker">Watch Party &nbsp;•&nbsp; Telegram</div>
     <h1>Join Our <span>Telegram.</span></h1>
 
-    <!-- STEP 1 -->
-    <div id="tg-step1">
-      <p>Get instant alerts for every new comedy episode, right on Telegram. Tap continue to get your invite link.</p>
-      <button class="btn" id="tg-continue">Continue &rarr;</button>
+    <!-- 3-CLICK GATE: first 2 clicks fire popunder ads, 3rd click opens Telegram. -->
+    <div id="tg-gate">
+      <p id="tg-msg">Get new episode alerts directly on Telegram. Button ko <b>3 baar dabao</b> &mdash; teesri baar me Telegram channel khul jayegi!</p>
+      <button class="btn" id="tg-join">Join Telegram</button>
+      <p class="tg-steps" id="tg-steps">Step 1 of 3</p>
     </div>
 
-    <!-- STEP 2 (revealed after Continue) -->
-    <div id="tg-step2" hidden>
-      <p>Almost there! Your invite link is unlocking in <b><span id="tg-count">5</span> seconds</b>…</p>
+    <!-- Banner below the join gate -->
       <!-- ADSTERRA IN-ARTICLE BANNER (responsive): paste another Adsterra Banner code here. -->
       <div class="ad-slot"><div class="ad-banner">
 <script>
@@ -73,9 +72,7 @@
 </script>
 <script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
 </div></div>
-      <!-- RAJ: replace the href below with your real Telegram channel link and re-upload this file. -->
-      <a class="btn" id="tg-join" href="https://t.me/watchparty_episodes" target="_blank" rel="noopener" hidden>Join Now &rarr;</a>
-    </div>
+
   </section>
 </main>
 
@@ -105,22 +102,31 @@
 
 <script>
 (function () {
-  var btn = document.getElementById('tg-continue');
+  var n = 0;
+  var btn = document.getElementById('tg-join');
+  var msg = document.getElementById('tg-msg');
+  var steps = document.getElementById('tg-steps');
+  var link = 'https://t.me/watchparty_episodes';
   btn.addEventListener('click', function () {
-    document.getElementById('tg-step1').hidden = true;
-    var s2 = document.getElementById('tg-step2');
-    s2.hidden = false;
-    var n = 5, el = document.getElementById('tg-count');
-    var t = setInterval(function () {
-      n--;
-      if (n <= 0) {
-        clearInterval(t);
-        el.textContent = '0';
-        document.getElementById('tg-join').hidden = false;
-      } else {
-        el.textContent = String(n);
-      }
-    }, 1000);
+    n++;
+    if (n === 1) {
+      /* Click 1: the Popunder ad fires in a new tab on this click. */
+      steps.textContent = 'Step 1 of 3 done \u2713';
+      msg.textContent = 'Ad khul gaya! Use band karke wapas aao, phir Join dabao.';
+      btn.textContent = 'Continue \u2192 Step 2';
+    } else if (n === 2) {
+      /* Click 2: another ad fires on this click. */
+      steps.textContent = 'Step 2 of 3 done \u2713';
+      msg.textContent = 'Bas ek aur step! Ad band karke wapas aao, aakhri baar Join dabao.';
+      btn.textContent = 'Continue \u2192 Step 3';
+    } else {
+      /* Click 3: open the Telegram channel. */
+      steps.textContent = 'Step 3 of 3 done \u2713';
+      msg.textContent = 'Telegram khul raha hai\u2026 enjoy!';
+      btn.textContent = 'Join Telegram';
+      window.open(link, '_blank');
+      n = 0;
+    }
   });
 })();
 </script>
