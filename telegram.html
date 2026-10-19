@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Telegram — Watch Party</title>
+<meta name="description" content="Join the Watch Party Telegram channel for new episode alerts.">
+<meta property="og:type" content="website">
+
+<!-- ADSTERRA SITE-OPEN AD (Popunder — installed 2026-10-19):
+     This ad fires as soon as the page opens. -->
+<script data-cfasync="false" src="https://afders.org/1/72fdf822f1080bb66112a89a2ff8603c"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="index.html">Watch <b>Party</b></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="telegram.html" class="active">Telegram</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ADSTERRA BANNER 728x90 (responsive): paste your Adsterra Banner code here. -->
+<div class="ad-slot"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
+
+<main>
+  <section class="hero">
+    <div class="kicker">Watch Party &nbsp;•&nbsp; Telegram</div>
+    <h1>Join Our <span>Telegram.</span></h1>
+
+    <!-- STEP 1 -->
+    <div id="tg-step1">
+      <p>Get instant alerts for every new comedy episode, right on Telegram. Tap continue to get your invite link.</p>
+      <button class="btn" id="tg-continue">Continue &rarr;</button>
+    </div>
+
+    <!-- STEP 2 (revealed after Continue) -->
+    <div id="tg-step2" hidden>
+      <p>Almost there! Your invite link is unlocking in <b><span id="tg-count">5</span> seconds</b>…</p>
+      <!-- ADSTERRA IN-ARTICLE BANNER (responsive): paste another Adsterra Banner code here. -->
+      <div class="ad-slot"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
+      <!-- RAJ: replace the href below with your real Telegram channel link and re-upload this file. -->
+      <a class="btn" id="tg-join" href="https://t.me/watchparty_episodes" target="_blank" rel="noopener" hidden>Join Now &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="f-wrap">
+    <div class="f-brand">
+      <a class="logo" href="index.html">Watch <b>Party</b></a>
+      <p>Full comedy episodes, free to watch. New episodes added regularly.</p>
+    </div>
+    <div class="f-links">
+      <div>
+        <h4>Watch</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#episodes">All Episodes</a>
+        <a href="telegram.html">Join Telegram</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">© 2026 Watch Party. All rights reserved.</div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('tg-continue');
+  btn.addEventListener('click', function () {
+    document.getElementById('tg-step1').hidden = true;
+    var s2 = document.getElementById('tg-step2');
+    s2.hidden = false;
+    var n = 5, el = document.getElementById('tg-count');
+    var t = setInterval(function () {
+      n--;
+      if (n <= 0) {
+        clearInterval(t);
+        el.textContent = '0';
+        document.getElementById('tg-join').hidden = false;
+      } else {
+        el.textContent = String(n);
+      }
+    }, 1000);
+  });
+})();
+</script>
+
+<!-- ADSTERRA SOCIAL BAR (installed 2026-10-19):
+     Floating notification-style ads appear periodically while visitors wait. -->
+<script data-cfasync="false" src="https://bicea.org/14/ae7da91d3ce2414f4266203565ecdfc7"></script>
+
+</body>
+</html>

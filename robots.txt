@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 
 # RAJ: after deploying, replace the URL below with your real site URL
-Sitemap: https://watchparty.netlify.app/sitemap.xml
+Sitemap: https://watchparty-episodes.netlify.app/sitemap.xml

@@ -8,9 +8,9 @@ backend:
   name: git-gateway
   branch: main   # RAJ: change to "master" if your GitHub repo's default branch is master
 
-site_url: https://watchparty.netlify.app/   # RAJ: replace with your real site URL after deploying
-display_url: https://watchparty.netlify.app/
-logo_url: https://watchparty.netlify.app/assets/logo.png
+site_url: https://watchparty-episodes.netlify.app/   # RAJ: replace with your real site URL after deploying
+display_url: https://watchparty-episodes.netlify.app/
+logo_url: https://watchparty-episodes.netlify.app/assets/logo.png
 
 media_folder: "assets/uploads"     # uploaded thumbnails are stored in the repo here
 public_folder: "/assets/uploads"

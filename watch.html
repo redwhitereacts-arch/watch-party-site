@@ -34,7 +34,18 @@
 <!-- ADSTERRA BANNER 728x90 (responsive): paste your Adsterra Banner code here.
      Sits directly above the video player — the highest-visibility slot on this page.
      Get the code from your Adsterra dashboard: Websites > your site > Banners > Create ad unit. -->
-<div class="ad-slot"><div class="ad-box">Advertisement</div></div>
+<div class="ad-slot"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
 
 <main>
   <div class="wrap">
@@ -47,7 +58,31 @@
       inject ads into it. Do NOT attempt hacks or overlays on the video — they get
       blocked and can get the site penalized by the ad network.
       The correct alternative is already built into this page:
-        1. The Adsterra Social Bar slot (just before </body>) keeps floating ads
+        1. The Adsterra Social Bar slot (just before 
+<!-- TELEGRAM JOIN POPUP: appears once per visit after 8 seconds, drives channel joins. -->
+<div class="tg-popup" id="tgPopup" hidden>
+  <div class="tg-popup-card">
+    <button class="tg-popup-close" id="tgPopupClose" aria-label="Close">&times;</button>
+    <div class="tg-popup-emoji">&#128276;</div>
+    <h3>New Episodes Sabse Pehle!</h3>
+    <p>Comedy episodes ka alert sabse pehle Telegram pe milta hai. Join karo &mdash; kabhi miss mat karo!</p>
+    <a class="btn" href="telegram.html">Join Telegram</a>
+  </div>
+</div>
+<script>
+(function(){
+  try{ if(sessionStorage.getItem('tgPopupSeen')) return; }catch(e){}
+  setTimeout(function(){
+    var p=document.getElementById('tgPopup'); if(!p) return;
+    p.hidden=false;
+    try{ sessionStorage.setItem('tgPopupSeen','1'); }catch(e){}
+    document.getElementById('tgPopupClose').addEventListener('click',function(){ p.hidden=true; });
+    p.addEventListener('click',function(e){ if(e.target===p) p.hidden=true; });
+  },8000);
+})();
+</script>
+
+</body>) keeps floating ads
            appearing periodically WHILE the video plays.
         2. The banner slots above and below the player earn on every watch page view.
       Together these are the standard, policy-safe way to monetize embedded video.
@@ -55,7 +90,18 @@
 
     <!-- ADSTERRA IN-ARTICLE BANNER (responsive): paste another Adsterra Banner code here.
          Appears right below the player, while the episode is still on screen. -->
-    <div class="ad-slot responsive"><div class="ad-box">Advertisement</div></div>
+    <div class="ad-slot responsive"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
   </div>
 </main>
 
@@ -70,6 +116,7 @@
         <h4>Watch</h4>
         <a href="index.html">Home</a>
         <a href="index.html#episodes">All Episodes</a>
+        <a href="telegram.html">Join Telegram</a>
       </div>
       <div>
         <h4>Site</h4>

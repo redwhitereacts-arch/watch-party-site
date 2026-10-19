@@ -27,6 +27,7 @@
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="index.html#episodes">Episodes</a>
+      <a href="telegram.html">Telegram</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -36,7 +37,18 @@
 <!-- ADSTERRA BANNER 728x90 (responsive): paste your Adsterra Banner code here.
      Recommended: 728x90 Leaderboard for desktop, it auto-scales on mobile.
      Get the code from your Adsterra dashboard: Websites > your site > Banners > Create ad unit. -->
-<div class="ad-slot"><div class="ad-box">Advertisement</div></div>
+<div class="ad-slot"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
 
 <main>
   <section class="hero">
@@ -44,6 +56,7 @@
     <h1>Laugh Out <span>Loud.</span></h1>
     <p>Watch full comedy episodes on Watch Party — new episodes added regularly. Grab your popcorn and press play.</p>
     <a class="btn" href="#episodes">Browse Episodes</a>
+    <a class="btn ghost" href="telegram.html">Join Telegram</a>
   </section>
 
   <div class="wrap" id="episodes">
@@ -61,7 +74,18 @@
 
   <!-- ADSTERRA IN-FEED BANNER (responsive): paste a second Adsterra Banner code here.
        Placed between the episode grid and the footer so visitors see an ad after browsing. -->
-  <div class="ad-slot responsive"><div class="ad-box">Advertisement</div></div>
+  <div class="ad-slot responsive"><div class="ad-banner">
+<script>
+  atOptions = {
+    'key' : '9c65dc73147443d5beabba83c526549c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/9c65dc73147443d5beabba83c526549c"></script>
+</div></div>
 </main>
 
 <footer>
@@ -75,6 +99,7 @@
         <h4>Watch</h4>
         <a href="index.html">Home</a>
         <a href="index.html#episodes">All Episodes</a>
+        <a href="telegram.html">Join Telegram</a>
       </div>
       <div>
         <h4>Site</h4>
@@ -95,6 +120,30 @@
      This is what keeps ads coming "in between" while a video plays — it runs on the
      page around the player, which is the correct approach (see the note on watch.html). -->
 <script data-cfasync="false" src="https://bicea.org/14/ae7da91d3ce2414f4266203565ecdfc7"></script>
+
+
+<!-- TELEGRAM JOIN POPUP: appears once per visit after 8 seconds, drives channel joins. -->
+<div class="tg-popup" id="tgPopup" hidden>
+  <div class="tg-popup-card">
+    <button class="tg-popup-close" id="tgPopupClose" aria-label="Close">&times;</button>
+    <div class="tg-popup-emoji">&#128276;</div>
+    <h3>New Episodes Sabse Pehle!</h3>
+    <p>Comedy episodes ka alert sabse pehle Telegram pe milta hai. Join karo &mdash; kabhi miss mat karo!</p>
+    <a class="btn" href="telegram.html">Join Telegram</a>
+  </div>
+</div>
+<script>
+(function(){
+  try{ if(sessionStorage.getItem('tgPopupSeen')) return; }catch(e){}
+  setTimeout(function(){
+    var p=document.getElementById('tgPopup'); if(!p) return;
+    p.hidden=false;
+    try{ sessionStorage.setItem('tgPopupSeen','1'); }catch(e){}
+    document.getElementById('tgPopupClose').addEventListener('click',function(){ p.hidden=true; });
+    p.addEventListener('click',function(e){ if(e.target===p) p.hidden=true; });
+  },8000);
+})();
+</script>
 
 </body>
 </html>
